@@ -1,16 +1,18 @@
 // [문제 링크]: https://www.acmicpc.net/problem/10926
 
 import java.io.*;
-import java.util.*;
 ​
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        String st = sc.nextLine();
+        String line = br.readLine();
         
-        System.out.println(st + "??!");
+        bw.write(line + "??!");
         
-        sc.close();
+        /* bw 끝내기 */
+        bw.flush();
+        bw.close();
     }
 }
