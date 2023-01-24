@@ -1,0 +1,16 @@
+// [문제 링크]: https://www.acmicpc.net/problem/10926
+
+import java.io.*;
+import java.util.*;
+​
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        
+        String st = sc.nextLine();
+        
+        System.out.println(st + "??!");
+        
+        sc.close();
+    }
+}
