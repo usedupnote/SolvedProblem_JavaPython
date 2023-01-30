@@ -67,7 +67,7 @@ public class Main {
 					Sharks[j][0] = Math.abs((Sharks[j][0] + (dirY[Sharks[j][3]] * Sharks[j][2])) % ((R - 1) * 2)); 
 					Sharks[j][1] = Math.abs((Sharks[j][1] + (dirX[Sharks[j][3]] * Sharks[j][2])) % ((C - 1) * 2));
 					
-					// 방향 바꾸기 (문제 발생 - 절대값을 기준으로 계산해 주었기 때문에 방향 변경에 문제 발생)
+					// 방향 바꾸기
 					if (dirY[Sharks[j][3]] * Sharks[j][2] != 0) {
 						if (Si  <= -(R - 1)) {
 							Sharks[j][3] = 0;
@@ -100,13 +100,12 @@ public class Main {
 						}
 					}
 					
-					// 최종 위치에 상어 한마리 더 있다고 해주기
-					// System.out.println(Sharks[j][0] + " " + Sharks[j][1]);
+					// 최종 위치에 가장 무게가 높은 상어의 크기를 넣어줌
 					Map[Sharks[j][0]][Sharks[j][1]] = Math.max(Map[Sharks[j][0]][Sharks[j][1]], Sharks[j][4]);
 				}
 			}
 			
-			// 3. 한 지점에 2마리 이상 있는 상황일 경우를 확인
+			// 3. 한 지점에 나보다 무게가 큰 상어가 있는지 확인
 			for (int j = 0; j < Sharks.length; j++) {
 				if (Sharks[j][4] != Map[Sharks[j][0]][Sharks[j][1]]) {
 					Sharks[j][4] = 0;
@@ -114,7 +113,6 @@ public class Main {
 			}
 		}
 		System.out.println(result);
-		
 		br.close();
 	}
 }
