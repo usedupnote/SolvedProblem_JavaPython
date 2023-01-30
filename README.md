@@ -19,6 +19,11 @@
 
 ### <a href = "https://career.programmers.co.kr/pr/leejm9704_9179"> Profile </a>
 
+### Solved Problem
+ | Lv.0 | Lv.1 | Lv.2 | Lv.3 | Lv.4 | Lv.5 | **TOTAL** |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| 32 | 53 | 16 | 0 | 0 | 0 |**101**|
+
 <br>
 
 ## <a href = "https://swexpertacademy.com/main/main.do"> SWEA (SW Expert Academy) </a>
