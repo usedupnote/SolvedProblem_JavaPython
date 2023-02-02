@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {		
+	static char [] ch;
+	
+	static int N;
+	static int result;
+	
+	public static void main(String[] args) throws Exception {
+		// 기본 설정 부분
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int T = Integer.parseInt(st.nextToken());
+		
+		for (int test_case = 0; test_case < T; test_case++) {
+			st = new StringTokenizer(br.readLine());
+			
+			N = Integer.parseInt(st.nextToken());
+			ch = st.nextToken().toCharArray();
+			
+			for (char c : ch) {
+				for (int i = 0; i < N; i++) {
+					sb.append(c);
+				}
+			}
+			sb.append("\n");
+		}
+		
+		System.out.println(sb.toString());
+	}
+}
