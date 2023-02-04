@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {		
+	static int N;
+	static int M;
+	static int result;
+	static int[] card;
+	
+	public static void main(String[] args) throws Exception {
+		// 기본 설정 부분
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		
+		st = new StringTokenizer(br.readLine());
+
+		card = new int[N];
+		
+		for (int i = 0; i < N; i++) {
+			card[i] = Integer.parseInt(st.nextToken());
+		}
+		
+		Arrays.sort(card);
+		
+		for (int i = N-1; i >= 2; i--) {
+			if (card[i] >= M) continue;
+			for (int j = i - 1; j >= 1 ; j--) {
+				if (card[i] + card[j] >= M) continue;
+				for (int k = j - 1; k >= 0; k--) {
+					if (card[i] + card[j] + card[k] > M) continue;
+
+					result = Math.max(card[i] + card[j] + card[k], result);
+					break;
+				}
+			}
+		}
+		System.out.println(result);
+	}
+}
