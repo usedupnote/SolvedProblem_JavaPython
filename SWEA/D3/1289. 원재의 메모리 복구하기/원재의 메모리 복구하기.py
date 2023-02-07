@@ -22,7 +22,7 @@ public class Solution {
             for (int i = 1; i < S.length(); i++) {
             	result += S.charAt(i) == S.charAt(i-1) ? 0:1;
 			}
-			sb.append("#").append(test_case).append(" ").append(result).append("\n");
+			sb.append("#" + test_case + " " + result + "\n");
         }
         System.out.println(sb.toString());
     }
