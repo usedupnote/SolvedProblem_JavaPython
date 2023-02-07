@@ -49,6 +49,7 @@ public class Solution {
 					l++;
 				}
 			}
+			
 			sb.append("#" + test_case + " "+result + "\n");
 		}
 		System.out.println(sb.toString());
