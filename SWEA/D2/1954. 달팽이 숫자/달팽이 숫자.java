@@ -9,6 +9,27 @@ public class Solution {
 	static int[] dirY = {1, 0, -1, 0};
 	static int[][] map;
 	
+	static void snail(int n) {
+		if(n == 1) {
+			map[posX][posY] = ++count;
+			return;
+		} else if (n < 1) {
+			return;
+		}
+		for (int i = 0; i < 4; i++) {
+			for (int j = 1; j < n; j++) {
+				map[posX][posY] = ++count;
+				posX += dirX[i];
+				posY += dirY[i];
+			}
+		}
+		
+		posX += 1;
+		posY += 1;
+		
+		snail(n - 2);
+	}
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
@@ -18,29 +39,17 @@ public class Solution {
    
 		for (int test_case = 1; test_case <= T; test_case++) {
 			posX = 0;
-			posY = -1;
-			count = 1;
+			posY = 0;
+			count = 0;
 			d = 0;
 			
 			st = new StringTokenizer(br.readLine());
+			
 			N = Integer.parseInt(st.nextToken());
+
 			map = new int[N][N];
 
-			while (count <= N * N) {
-				int dx = posX + dirX[d];
-				int dy = posY + dirY[d];
-				
-				if (!(dx >= 0 && dx < N && dy >= 0 && dy < N)) {
-					d = (d + 1) % 4;
-				} else if (map[dx][dy] != 0) {
-					d = (d + 1) % 4;
-				}
-				
-				posX += dirX[d];
-				posY += dirY[d];
-				
-				map[posX][posY] = count++;
-			} 
+			snail(N);
 			
 			sb.append("#" + test_case + "\n");
 			for (int i = 0; i < N; i++) {
