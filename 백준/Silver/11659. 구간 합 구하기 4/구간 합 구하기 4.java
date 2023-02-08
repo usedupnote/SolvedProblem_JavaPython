@@ -2,9 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	static int N, M;
 	static int i, j;
-	static int[] num;
 		
 	public static void main(String[] args) throws IOException {
 		// 입출력을 위한 기본 설정
@@ -13,10 +11,10 @@ public class Main {
 		
 		// 자연수 N과 M 입력
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
 		
-		num = new int[N + 1];
+		int[] num = new int[N + 1];
 		
 		st = new StringTokenizer(br.readLine());
 		
