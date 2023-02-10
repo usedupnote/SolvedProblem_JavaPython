@@ -9,8 +9,6 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		
 		int compare = 1;
-		int count = 1;
-		
 		int result = 0;
 		
 		if (N == 1) {
@@ -19,13 +17,10 @@ public class Main {
 			N--;
 			while (N > compare) {
 				N -= compare;
-				
-				count++;
 				compare *= 2;
 			}
 			result = N * 2;
 		}
-		
 		System.out.println(result);
 	}
 }
