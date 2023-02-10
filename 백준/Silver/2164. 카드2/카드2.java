@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
 	static int N;
-	static Queue<Integer> num = new LinkedList<>();
+	static Queue<Integer> num = new ArrayDeque<Integer>();
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,12 +12,12 @@ public class Main {
 		N = Integer.parseInt(st.nextToken());
 		
 		for (int i = 0; i < N; i++) {
-			num.add(i + 1);
+			num.offer(i + 1);
 		}
 		
 		for (int i = 0; i < N - 1; i++) {
 			num.poll();
-			num.add(num.poll());
+			num.offer(num.poll());
 		}
 		
 		System.out.println(num.poll());
