@@ -4,35 +4,29 @@ import java.io.*;
 import java.util.*;
 ​
 public class Main {
-    static boolean hasUnionToday;       // 오늘 이동이 발생했는지 확인하기 위한 boolean
-    static int N, L, R;                 // 기본 입력값 (N : 땅의 한쪽 폭, L : 최소 인구수 차이, R : 최대 인구수 차이)
-    static int dayOfChange;             // 인구 이동 일 (결과값)
-    static int [] dirX = {-1, 1, 0, 0}; // 상하좌우     
+    static boolean hasUnionToday;
+    static int N, L, R;
+    static int dayOfChange;
+    static int [] dirX = {-1, 1, 0, 0};
     static int [] dirY = {0, 0, -1, 1}; 
-    static int[][] union;               // 각 union의 국가 수[0] 및 총 인구[1]가 담긴 배열
-    static int[][] map;                 // 지역의 인구정보가 담긴 맵
-    static int[][] unionMap;            // UNION 상황을 표현하는 맵
+    static int[][] union;
+    static int[][] map;
+    static int[][] unionMap;
     
     static void searchUnion(int a, int b) {
         if (unionMap[a][b] == 0) {
             unionMap[a][b] = (N * a) + b + 1;
         }
-        // 사방탐색
+        
         for (int d = 0; d < 4; d++) {
             int dx = a + dirX[d];
             int dy = b + dirY[d];
             
             if(dx >= 0 && dx < N && dy >= 0 && dy < N) {
-                // 나랑 상대방의 인구수 차이
                 int diff = Math.abs(map[a][b] - map[dx][dy]);
                 
-                // 나랑 이동할 위치의 union이 다를 때 && 범위에 들어왔는지
                 if (unionMap[a][b] != unionMap[dx][dy] && diff >= L && diff <= R) {
-                    
-                    // 오늘 한 번이라도 union이 결성되었다고 선언
                     hasUnionToday = true;
-                    
-                    // 내가 이동할 위치를 내 union으로 합류시키고 재귀
                     unionMap[dx][dy] = unionMap[a][b];
                     searchUnion(dx, dy);
                 }
@@ -41,23 +35,18 @@ public class Main {
     }
     
     public static void main(String[] args) throws IOException {
-        // 기본설정
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        
-        // 첫번째 입력 줄(N : 땅의 한쪽 폭, L : 최소 인구수 차이, R : 최대 인구수 차이)
         StringTokenizer st = new StringTokenizer(br.readLine());
         
         N = Integer.parseInt(st.nextToken());
         L = Integer.parseInt(st.nextToken());
         R = Integer.parseInt(st.nextToken());
         
-        // 초기화파트
-        dayOfChange = 0;            // 인구이동일 초기화
+        dayOfChange = 0;
         
         map = new int[N][N];
 ​
-        // map에 정보 저장
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
@@ -65,30 +54,24 @@ public class Main {
             }
         }   
         
-        // 매일 순회하기 위한 while
         while (true) {
-            union = new int[N * N + 1][2];  // 모든 union에 대한 정보 초기화
-            unionMap = new int[N][N];   // 다시 연결을 끊고 union을 초기화 + union 배열 초기화
+            union = new int[N * N + 1][2];
+            unionMap = new int[N][N];
             hasUnionToday = false;
 ​
-            // union 결성을 위한 순회
             for (int i = 0; i < N ; i++) {
                 for (int j = 0; j < N ; j++) {
                     searchUnion(i, j);
                 }
             }
 ​
-            // union 결성 건수가 없다면 종료
             if (hasUnionToday == false) {
                 System.out.println(dayOfChange);
                 break;
             }
-            
-            // 결성된 적이 있다면, 날짜 하루 추가
+​
             dayOfChange += 1;
 ​
-            // 맵에 존재하는 나라가 어떤 union이고 인구수가 몇명인지 파악해서 
-            // 포함되는 union에 나라 수와 인구수를 더함
             for (int i = 0; i < N ; i++) {
                 for (int j = 0; j < N ; j++) {
                     union[unionMap[i][j]][0] += 1;
@@ -96,14 +79,12 @@ public class Main {
                 }
             }
             
-            // map에 union결성 후 인구수를 배포
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
                     map[i][j] = union[unionMap[i][j]][1] / union[unionMap[i][j]][0];
                 }
             }
         }
-        // close
         br.close();
     }
 }
