@@ -26,7 +26,7 @@ public class Solution {
 				}
 			}
 		}
-		
+		if (compare == 0) return;
 		max = Math.max(max, compare);
 		search(cnt + 1);
 	}
