@@ -1,36 +1,37 @@
 import java.io.*;
 import java.util.*;
-
-// 풀기는 풀었는데 너무 별로로 풀었다 다시 풀 예정
-
+ 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	static int N, K, count;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int N = sc.nextInt();
-		int K = sc.nextInt();
+		N = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
 		
-		int position = 0;
-		int point = 1;
-		int[] list = new int[N];
-		int[] result = new int[N];
+		LinkedList<Integer> num = new LinkedList<>();
 		
-		for (int i = 0; i < N; i++) list[i] = i+1;
-		
-		for (int i = 0; i < N; i++) {
-			while (point < K) {			
-				position = (position + 1) % N;
-				
-				if (list[position] != 0) point++;
-				
-			}
-			
-			result[i] = list[position];
-			list[position] = 0;
-			point = 0;
+		for (int i = 1; i <= N; i++) {
+			num.offer(i);
 		}
-
-		String testString = Arrays.toString(result).replace("[", "<").replace("]",">");
-		System.out.println(testString);
+		
+		count = 1;
+		sb.append("<");
+		while (num.size() != 1) {
+			if(count >= K) {
+				sb.append(num.poll() + ", ");
+				count = 1;
+				continue;
+			}
+			num.offer(num.poll());
+			count++;
+		}
+		sb.append(num.poll() + ">");
+		
+		System.out.println(sb);
+		br.close();
 	}
 }
