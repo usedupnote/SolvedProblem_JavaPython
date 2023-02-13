@@ -67,7 +67,6 @@ public class Solution {
 			
 			sb.append("#" + test_case + " " + max + "\n");
 		}
-		
 		System.out.println(sb);
 		br.close();
 	}
