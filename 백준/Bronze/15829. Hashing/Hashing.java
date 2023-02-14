@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
  
 public class Main {
-	static int N;
+	static long N;
 	static long result;
 	static int[] num;
 	static char[] ch;
