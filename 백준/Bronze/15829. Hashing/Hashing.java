@@ -2,9 +2,8 @@ import java.io.*;
 import java.util.*;
  
 public class Main {
-	static long N;
+	static long N, M;
 	static long result;
-	static int[] num;
 	static char[] ch;
 	
 	public static void main(String[] args) throws IOException {
@@ -14,12 +13,12 @@ public class Main {
 		N = Integer.parseInt(st.nextToken());
 		ch = br.readLine().toCharArray();
 		
+        M = 1;
 		for (int i = 0; i < N; i++) {
-			result += (Character.valueOf(ch[i])-'a' + 1) * Math.pow(31, i);
-			result %= 1234567891;
+			result += ((Character.valueOf(ch[i])-'a' + 1) * M) % 1234567891;
+			M = (M * 31) % 1234567891;
 		}
-		
-		System.out.println(result);
+		System.out.println(result %= 1234567891);
 		br.close();
 	}
 }
