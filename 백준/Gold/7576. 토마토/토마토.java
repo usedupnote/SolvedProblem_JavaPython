@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	static final int[] dirX = {1, 0, -1, 0}; // 상 우 하 좌
+	static final int[] dirY = {0, 1, 0, -1};
+	
+	static int N, M, checker, counter;
+	static int[][] map;
+	static ArrayDeque<int[]> ad = new ArrayDeque<>();
+	
+	static void bfs() {
+		while (!ad.isEmpty()) {
+			int[] now = ad.poll();
+			
+			for (int d = 0; d < 4; d++) {
+				int dx = now[0] + dirX[d];
+				int dy = now[1] + dirY[d];
+				
+				if(dx >= 0 && dx < M && dy >= 0 && dy < N && map[dx][dy] == 0) {
+					checker--;
+					map[dx][dy] = map[now[0]][now[1]] + 1;
+					counter = map[dx][dy];
+					ad.offer(new int[] {dx, dy});
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		
+		map = new int[M][N];
+		checker = 0;
+		counter = 1;
+		
+		for (int i = 0; i < M; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+				if (map[i][j] == 0) checker++;
+				else if (map[i][j] == 1) ad.offer(new int[] {i, j});
+			}
+		}
+		bfs();
+		System.out.println(checker == 0? counter-1:-1);
+		br.close();
+	}
+}
