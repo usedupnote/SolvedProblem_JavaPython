@@ -2,79 +2,71 @@ import java.io.*;
 import java.util.*;
 
 public class Solution {
-	
-	static int N, check;
-	static final int[] DIRX = {1, 0, -1, 0}; //상 우 하 좌
-	static final int[] DIRY = {0, 1, 0, -1};
-	static int[][] map;
-	
-	static PriorityQueue<int[]> result;
-	static ArrayDeque<int[]> ad;
-		
-	static void bfs(int x, int y) {
-		ad.offer(new int[] {x, y});
-		
-		check = 0;
-		while (!ad.isEmpty()) {
-			check++;
-			int[] now = ad.poll();
-			
-			for (int d = 0; d < 4; d++) {
-				int dx = now[0] + DIRX[d];
-				int dy = now[1] + DIRY[d];
+	static final int[] POSX = {-1, 0, 1, 0}; //상 우 하 좌
+	static final int[] POSY = {0, 1, 0, -1};
+	static int size;
+    static int[][] table;
+    static int[][] dp;
+     
+    public static int bfs(int row, int col){
+        if(dp[row][col] != 0){
+            return dp[row][col];
+        }
+        else {
+            int tempOut = 1;
+            int currentValue = table[row][col];
+            for (int d = 0; d < 4; d++) {
+				int dx = row + POSX[d];
+				int dy = col + POSY[d];
 				
-				if (dx >= 0 && dx < N && dy >= 0 && dy < N && map[dx][dy] == map[now[0]][now[1]] + 1) {
-					ad.offer(new int[] {dx, dy});
-				}
+				if(dx >=0 && dx < size && dy >=0 && dy < size && currentValue+1 == table[dx][dy]){
+	                tempOut = Math.max(tempOut, bfs(dx, dy)+1);
+	            }
 			}
-		}
-		result.offer(new int[] {map[x][y], check});
-	}
-	
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		int T = Integer.parseInt(st.nextToken());
-		
-		for (int test_case = 1; test_case <= T; test_case++) {
-			st = new StringTokenizer(br.readLine());
-			N = Integer.parseInt(st.nextToken());
-			result = new PriorityQueue<int[]>(new Comparator<int[]>() {
-
-				@Override
-				public int compare(int[] o1, int[] o2) {
-					if(o1[1] > o2[1]) {
-						return -1;
-					} else if (o1[1] == o2[1] && o1[0] < o2[0]){
-						return -1;
-					} else {
-						return 1;
-					}
-				}
-			});
-			ad = new ArrayDeque<>();
-			
-			map = new int[N][N];
-			for (int i = 0; i < N; i++) {
-				st = new StringTokenizer(br.readLine());
-				for (int j = 0; j < N; j++) {
-					map[i][j] = Integer.parseInt(st.nextToken());
-				}
-			}
-
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					bfs(i, j);
-				}
-			}
-
-			int[] num = result.poll();
-			sb.append("#" + test_case + " " + num[0] + " " + num[1] + "\n");
-		}
-		
-		System.out.println(sb);
-		br.close();
-	}
+            dp[row][col] = tempOut;
+            return dp[row][col];
+        }
+    }
+     
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+         
+        int numOfTests = Integer.parseInt(br.readLine());
+         
+        int testCount = 1;
+         
+        while(testCount <= numOfTests){
+            size = Integer.parseInt(br.readLine());
+            table = new int[size][size];
+            dp = new int[size][size];
+             
+            for(int i=0; i<size; i++){
+                StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+                for(int j=0; j<size; j++){
+                    table[i][j] = Integer.parseInt(st.nextToken());
+                }
+            }
+             
+            int maxValue = Integer.MIN_VALUE;
+            for(int i=0; i<size; i++){
+                for(int j=0; j<size; j++){
+                    maxValue = Math.max(maxValue, bfs(i, j));
+                }
+            }
+             
+            int out = Integer.MAX_VALUE;
+            for(int i=0; i<size; i++){
+                for(int j=0; j<size; j++){
+                    if(dp[i][j] == maxValue){
+                        out = Math.min(out, table[i][j]);
+                    }
+                }
+            }
+            sb.append("#"+testCount+" "+out+" "+maxValue+"\n");
+            testCount++;
+        }
+        System.out.println(sb);
+        br.close();
+    }
 }
