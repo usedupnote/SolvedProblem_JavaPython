@@ -5,7 +5,7 @@ public class Main {
 	static int[] rotX = {1, 0, -1, 0}; // 하 우 상 좌
 	static int[] rotY = {0, 1, 0, -1};
     static int N, M, K;
-    static int[][] cycle;
+    static int[][] rot;
     static int[][] map;
     static int min = Integer.MAX_VALUE;
     public static void main(String[] args) throws Exception {
@@ -25,21 +25,19 @@ public class Main {
             }
         }
 
-        cycle = new int[K][3];
+        rot = new int[K][3];
 
         for(int k = 0; k<K; k++) {
             st = new StringTokenizer(br.readLine());
-            cycle[k][0] = Integer.parseInt(st.nextToken()) - 1;
-            cycle[k][1] = Integer.parseInt(st.nextToken()) - 1;
-            cycle[k][2] = Integer.parseInt(st.nextToken());
+            rot[k][0] = Integer.parseInt(st.nextToken()) - 1;
+            rot[k][1] = Integer.parseInt(st.nextToken()) - 1;
+            rot[k][2] = Integer.parseInt(st.nextToken());
         }
-
         permutation(0, new int[K], new boolean[K]);
-
-        System.out.printf("%d", min);
+        System.out.print(min);
     }
 
-    public static void permutation(int cnt, int[] arr, boolean[] visited) {
+    static void permutation(int cnt, int[] arr, boolean[] visited) {
         if(cnt == K) {
             doCycle(arr);
             return;
@@ -53,13 +51,13 @@ public class Main {
         }
     }
 
-    public static void doCycle(int[] arr) {
+    static void doCycle(int[] arr) {
         int[][] tmp = copyMap();
 
         for(int k=0; k<K; k++) {
-            int r = cycle[arr[k]][0];
-            int c = cycle[arr[k]][1];
-            int S = cycle[arr[k]][2];
+            int r = rot[arr[k]][0];
+            int c = rot[arr[k]][1];
+            int S = rot[arr[k]][2];
     		
     		for (int s = 1; s <= S; s++) {
     			int save = tmp[r-s][c-s];
@@ -87,7 +85,7 @@ public class Main {
         getAnswer(tmp);
     }
 
-    public static int[][] copyMap() {
+    static int[][] copyMap() {
         int[][] tmp = new int[N][M];
 
         for(int i=0; i<N; i++) {
@@ -95,11 +93,10 @@ public class Main {
                 tmp[i][j] = map[i][j];
             }
         }
-
         return tmp;
     }
 
-    public static void getAnswer(int[][] tmp) {
+    static void getAnswer(int[][] tmp) {
         for(int i=0; i<N; i++) {
             int sum = 0;
             for(int j=0; j<M; j++) {
