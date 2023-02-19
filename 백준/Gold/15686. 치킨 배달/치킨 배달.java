@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	static int N, M, result = Integer.MAX_VALUE;
+	static int sizeH, sizeC;
+	static int[][] chickenDistance, map;
+    static ArrayDeque<int[]> houses, chickens;
+    static boolean[] v;
+    
+    public static void comb(int cnt, int start) {
+    	if (cnt == M) {
+    		int check = 0;
+			for (int i = 0; i < sizeH ; i++) {
+				int min = Integer.MAX_VALUE;
+				for (int j = 0; j < sizeC ; j++) {
+					if (!v[j]) continue;
+					min = Math.min(chickenDistance[i][j], min);
+				}
+				check += min;
+			}
+    		result = Math.min(result, check);
+    		return;
+    	}
+    	
+    	for (int i = start; i < chickens.size() ; i++) {
+			if (v[i]) continue;
+			v[i] = true;
+    		comb(cnt + 1, start + 1);
+			v[i] = false;
+		}
+    }
+    
+	public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        
+        map 	= new int[N][N];
+        houses 	= new ArrayDeque<>();
+        chickens = new ArrayDeque<>();
+        
+        for (int i = 0; i < N; i++) {
+        	st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+				if(map[i][j] == 1) {
+					houses.offer(new int [] {i, j});
+				}else if(map[i][j] == 2) {
+					chickens.offer(new int [] {i, j});
+				}
+			}
+		}
+        
+        sizeH = houses.size();
+        sizeC = chickens.size();
+        
+        chickenDistance = new int[sizeH][sizeC];
+        v = new boolean[sizeC];
+        
+    	for (int i = 0; i < sizeH; i++) {
+        	int [] house = houses.poll();
+        	for (int j = 0; j < sizeC; j++) {
+        		int[] chicken = chickens.poll();
+        		chickenDistance[i][j] = Math.abs(house[0] - chicken[0]) + Math.abs(house[1] - chicken[1]);
+        		chickens.offer(chicken);
+			}
+		}
+    	
+        comb(0, 0);
+        
+        System.out.println(result);
+	}
+}
