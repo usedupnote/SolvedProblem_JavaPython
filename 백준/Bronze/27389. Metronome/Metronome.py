@@ -1,2 +1,1 @@
-import sys
-print(float(sys.stdin.readline()) / 4)
+print(int(input())/4)
