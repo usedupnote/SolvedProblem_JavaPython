@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
 	static int N, result;
-	static int[] pos, base;
+	static int[] pos;
 	static int[][] map;
 	static boolean[] v = new boolean[10];
 	static StringBuilder sb = new StringBuilder();
@@ -52,24 +52,75 @@ public class Main {
 		
 		for (int i = 0; i < N; i++) {
 			int cnt = 0;
-			base = new int[10];
+			boolean[] base = new boolean[4];
 			
-			while (true) {
+			while (cnt != 3) {
 				position %= 9;
-				if(map[i][pos[++position]] == 0) {
-					if(++cnt == 3) break;
-					continue;
-				}
-				
-				base[position] = map[i][pos[position]];
-				for (int d = 1; d <= 9; d++) {
-					if(base[d] != 0) {
-						if (d != position) base[d] += map[i][pos[position]];
-						if(base[d] >= 4) {
-							base[d] = 0;
-							count++;
-						}
+				switch (map[i][pos[++position]]) {
+				case 1:
+					if (base[3]) {
+						base[3] = false;
+						count++;
 					}
+					if (base[2]) {
+						base[3] = true;
+						base[2] = false;
+					}
+					if (base[1]) {
+						base[2] = true;
+						base[1] = false;
+					}
+					base[1] = true;
+					break;
+				case 2:
+					if (base[3]) {
+						base[3] = false;
+						count++;
+					}
+					if (base[2]) {
+						base[2] = false;
+						count++;
+					}
+					if (base[1]) {
+						base[3] = true;
+						base[1] = false;
+					}
+					base[2] = true;
+					break;
+				case 3:
+					if (base[3]) {
+						base[3] = false;
+						count++;
+					}
+					if (base[2]) {
+						base[2] = false;
+						count++;
+					}
+					if (base[1]) {
+						base[1] = false;
+						count++;
+					}
+					base[3] = true;
+					break;
+				case 4:
+					if (base[3]) {
+						base[3] = false;
+						count++;
+					}
+					if (base[2]) {
+						base[2] = false;
+						count++;
+					}
+					if (base[1]) {
+						base[1] = false;
+						count++;
+					}
+					count++;
+					break;
+
+				default:
+					cnt++;
+					break;
 				}
 			}
 		}
