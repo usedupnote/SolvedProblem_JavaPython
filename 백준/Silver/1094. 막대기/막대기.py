@@ -1,0 +1,17 @@
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+
+bar = 64
+count = 1
+
+while True :
+    if N == bar :
+        print(count)
+        break
+    elif N > bar :
+        N -= bar
+        count += 1
+    else :
+        bar /= 2
