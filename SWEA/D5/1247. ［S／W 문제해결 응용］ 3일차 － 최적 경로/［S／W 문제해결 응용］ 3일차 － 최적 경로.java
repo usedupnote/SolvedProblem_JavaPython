@@ -7,7 +7,7 @@ public class Solution {
 	static boolean[] v;
 	
 	static void prem(int to, int cnt, int checkPoint) {
-        if (checkPoint > result) return;
+        if (checkPoint >= result) return;
 		if (cnt == N + 1) {
 			checkPoint += sep[to][1];
 			result = Math.min(result, checkPoint);
