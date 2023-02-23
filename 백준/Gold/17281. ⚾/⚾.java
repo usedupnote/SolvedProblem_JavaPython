@@ -6,7 +6,6 @@ public class Main {
 	static int[] pos;
 	static int[][] map;
 	static boolean[] v = new boolean[10];
-	static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -51,6 +50,7 @@ public class Main {
 		int position = 0;
 		
 		for (int i = 0; i < N; i++) {
+            if (result - count > 24 * N) break;
 			int cnt = 0;
 			boolean[] base = new boolean[4];
 			
