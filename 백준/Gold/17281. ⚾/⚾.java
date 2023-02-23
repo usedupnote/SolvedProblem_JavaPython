@@ -50,7 +50,7 @@ public class Main {
 		int position = 0;
 		
 		for (int i = 0; i < N; i++) {
-            if (result - count > 24 * N) break;
+            if (result - count >= 24 * N) break;
 			int cnt = 0;
 			boolean[] base = new boolean[4];
 			
