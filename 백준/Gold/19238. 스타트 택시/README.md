@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 22660 KB, 시간: 268 ms
+메모리: 23896 KB, 시간: 256 ms
 
 ### 분류
 
@@ -20,7 +20,7 @@
 
 <p>백준이 태울 승객을 고를 때는 현재 위치에서 최단거리가 가장 짧은 승객을 고른다. 그런 승객이 여러 명이면 그중 행 번호가 가장 작은 승객을, 그런 승객도 여러 명이면 그중 열 번호가 가장 작은 승객을 고른다. 택시와 승객이 같은 위치에 서 있으면 그 승객까지의 최단거리는 0이다. 연료는 한 칸 이동할 때마다 1만큼 소모된다. 한 승객을 목적지로 성공적으로 이동시키면, 그 승객을 태워 이동하면서 소모한 연료 양의 두 배가 충전된다. 이동하는 도중에 연료가 바닥나면 이동에 실패하고, 그 날의 업무가 끝난다. 승객을 목적지로 이동시킨 동시에 연료가 바닥나는 경우는 실패한 것으로 간주하지 않는다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 395px; height: 396px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/b4dfd78f-5276-44a4-a1f1-a5ccde6fbc8b/-/preview/" style="width: 395px; height: 396px;"></p>
 
 <p style="text-align: center;"><그림 1></p>
 
@@ -30,12 +30,12 @@
 	<tbody>
 		<tr>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 358px; height: 355px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/3a0360d0-7aa4-4f6e-89aa-8f29ceb3db8d/-/preview/" style="width: 358px; height: 355px;"></p>
 
 			<p><그림 2></p>
 			</td>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 355px; height: 354px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/fb1d41e5-a420-4957-8fe8-1a6f822b284e/-/preview/" style="width: 355px; height: 354px;"></p>
 
 			<p><그림 3></p>
 			</td>
@@ -49,12 +49,12 @@
 	<tbody>
 		<tr>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 355px; height: 356px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/a4ad059c-f909-4cf2-a401-9d72a69a2549/-/preview/" style="width: 355px; height: 356px;"></p>
 
 			<p><그림 4></p>
 			</td>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 357px; height: 356px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/3abc49bb-33a3-4828-a6c3-1be22fd3967d/-/preview/" style="width: 357px; height: 356px;"></p>
 
 			<p><그림 5></p>
 			</td>
@@ -68,12 +68,12 @@
 	<tbody>
 		<tr>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 354px; height: 353px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/86aa0566-f468-4343-a83d-d978f0120cec/-/preview/" style="width: 354px; height: 353px;"></p>
 
 			<p><그림 6></p>
 			</td>
 			<td style="width: 50%; text-align: center;">
-			<p><img alt="" src="" style="width: 362px; height: 354px;"></p>
+			<p><img alt="" src="https://upload.acmicpc.net/aebc9d40-2c56-4e6c-b914-d8d9b55f8ff5/-/preview/" style="width: 362px; height: 354px;"></p>
 
 			<p><그림 7></p>
 			</td>
