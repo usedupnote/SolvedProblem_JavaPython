@@ -3,15 +3,16 @@
 # SolvedProblem_JavaPython
 
 ## <a href = "https://www.acmicpc.net/"> BaekJoon </a>
-### <a href = "https://www.acmicpc.net/user/usedupnote"> Python (usedupnote) </a>
-
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=usedupnote)](https://solved.ac/usedupnote/)
-
-<br>
 
 ### <a href = "https://www.acmicpc.net/user/leejm9704"> Java (Leejm9704) </a>
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=leejm9704)](https://solved.ac/leejm9704/)
+
+<br>
+
+### <a href = "https://www.acmicpc.net/user/usedupnote"> Python (usedupnote) </a>
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=usedupnote)](https://solved.ac/usedupnote/)
 
 <br>
 
