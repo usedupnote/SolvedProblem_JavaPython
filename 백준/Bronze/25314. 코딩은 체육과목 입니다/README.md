@@ -4,15 +4,15 @@
 
 ### 성능 요약
 
-메모리: 30840 KB, 시간: 72 ms
+메모리: 14120 KB, 시간: 120 ms
 
 ### 분류
 
-구현(implementation)
+구현
 
 ### 문제 설명
 
-<p style="margin-bottom: 15px;"><img alt="" src="" style="display: block; margin-left: auto; margin-right: auto; width: 100%; max-width: 400px;"></p>
+<p style="margin-bottom: 15px;"><img alt="" src="https://upload.acmicpc.net/ccbbee06-7e6f-4e56-bb9f-9a1abd795508/-/preview/" style="display: block; margin-left: auto; margin-right: auto; width: 100%; max-width: 400px;"></p>
 
 <p>오늘은 혜아의 면접 날이다. 면접 준비를 열심히 해서 앞선 질문들을 잘 대답한 혜아는 이제 마지막으로 칠판에 직접 코딩하는 문제를 받았다. 혜아가 받은 문제는 두 수를 더하는 문제였다. C++ 책을 열심히 읽었던 혜아는 간단히 두 수를 더하는 코드를 칠판에 적었다. 코드를 본 면접관은 다음 질문을 했다. “만약, 입출력이 $N$바이트 크기의 정수라면 프로그램을 어떻게 구현해야 할까요?”</p>
 
