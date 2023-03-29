@@ -1,10 +1,9 @@
 import java.io.*;
 import java.util.*;
- 
+
 public class Main {
     private static int N;
-    private static int[] sumRow;
-    private static int[] sumColumn;
+    private static int[] sumRow, sumColumn;
     private static int result = Integer.MAX_VALUE;
     
 	public static void main(String[] args) throws IOException {
@@ -27,16 +26,16 @@ public class Main {
                 sumColumn[j] += num;
             }
         }
-
         comb(0, 0, sumTotal);
-        
         System.out.println(result);
         br.close();
 	}
 
     private static void comb(int index, int cnt, int sumTotal) {
-        result = Math.min(result, Math.abs(sumTotal));
-        if (index == N || cnt == (N/2) + 1) return;
+        if (index == N || cnt == N/2) {
+        	result = Math.min(result, Math.abs(sumTotal));
+        	return;
+        }
         comb(index + 1, cnt + 1, sumTotal - sumRow[index] - sumColumn[index]);
         comb(index + 1, cnt, sumTotal);
     }
