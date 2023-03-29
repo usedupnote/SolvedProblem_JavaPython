@@ -1,14 +1,14 @@
-# [Bronze II] A+B - 6 - 10953 
+# [Bronze III] A+B - 6 - 10953 
 
 [문제 링크](https://www.acmicpc.net/problem/10953) 
 
 ### 성능 요약
 
-메모리: 30616 KB, 시간: 36 ms
+메모리: 15968 KB, 시간: 140 ms
 
 ### 분류
 
-사칙연산(arithmetic), 수학(math), 파싱(parsing), 문자열(string)
+수학, 문자열, 사칙연산, 파싱
 
 ### 문제 설명
 
