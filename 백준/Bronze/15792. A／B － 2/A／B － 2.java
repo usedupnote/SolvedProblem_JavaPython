@@ -20,7 +20,6 @@ public class Main {
 			if(A== 0) break;
 			sb.append(A/B);
 		}
-		
 		System.out.println(sb);
 		br.close();
 	}
