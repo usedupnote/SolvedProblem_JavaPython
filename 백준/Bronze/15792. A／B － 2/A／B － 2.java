@@ -14,7 +14,7 @@ public class Main {
 		
 		int cnt = 0;
 		
-		while (cnt++ < 1999) {
+		while (cnt++ < 1000) {
 			A %= B;
 			A *= 10;
 			if(A== 0) break;
