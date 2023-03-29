@@ -26,14 +26,12 @@ public class Main {
                 sumColumn[j] += num;
             }
         }
-
         comb(0, 0, sumTotal);
-        
         System.out.println(result);
         br.close();
 	}
 
-    private static void comb(int index, int cnt, int sumTotal) {
+    static void comb(int index, int cnt, int sumTotal) {
         if (cnt == (N/2)) {
         	result = Math.min(result, Math.abs(sumTotal));
         	return;
