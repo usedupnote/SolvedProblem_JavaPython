@@ -1,15 +1,19 @@
 import sys
-while True :
-    string = list(sys.stdin.readline())
+input = sys.stdin.readline
 
-    vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+comp = ['a', 'e', 'i', 'o', 'u']
 
-    result = 0
+N = input()
 
-    if string[0] == "#" :
-        break
+while N[0] != '#' and len(N) != 1 :
+    N = N.lower()
 
-    for i in string :
-        if i in vowels :
-            result += 1
-    print(result)
+    cnt = 0
+
+    for i in N :
+        if i in comp :
+            cnt+= 1
+            continue
+
+    print(cnt)
+    N = input()
