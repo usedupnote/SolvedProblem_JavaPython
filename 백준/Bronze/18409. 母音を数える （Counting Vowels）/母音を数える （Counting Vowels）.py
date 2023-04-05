@@ -1,9 +1,6 @@
-import sys
-input = sys.stdin.readline
-
 check = ['a','e','i','o','u']
 
-N = int(input())
+input()
 S = list(input())
 
 cnt = 0
