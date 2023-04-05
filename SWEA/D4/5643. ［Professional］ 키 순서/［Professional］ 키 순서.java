@@ -57,7 +57,7 @@ public class Solution {
                 if(cnt == N) result++;
             }
             //자신이 키가 몇 번째인지 알 수 있는 학생이 모두 몇 명인지를 출력
-            sb.append("#" + TC + " " + result + "\n");
+            sb.append("#").append(TC).append(" ").append(result).append("\n");
         }
         System.out.println(sb);
         br.close();
