@@ -8,12 +8,10 @@ public class Main {
 	
 	static int N, X, result;
 	static int[][] map;
-	static boolean[][][][] vMap;
-	static ArrayDeque<int[]> q;
+	static boolean[][][][] v;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 		StringTokenizer st;
 		
 		st = new StringTokenizer(br.readLine());
@@ -21,7 +19,7 @@ public class Main {
 		 
 		// 공사 지도의 정보
 		map = new int[N][N];
-		vMap = new boolean[N][N][4][25];	//  x, y, d, v
+		v = new boolean[N][N][4][25];	//  x, y, d, v
 		
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -67,9 +65,9 @@ public class Main {
 							if(map[dx][dy] <= poll[2]) break;
 						}
 					}
-					if(0<=dx && dx<N && 0<=dy && dy<N && !vMap[dx][dy][d][poll[3]]) {
+					if(0<=dx && dx<N && 0<=dy && dy<N && !v[dx][dy][d][poll[3]]) {
 						if(map[dx][dy] <= poll[2]) continue;
-						vMap[dx][dy][d][poll[3]] = true;
+						v[dx][dy][d][poll[3]] = true;
 						q.offer(new int[] {dx,dy,poll[2]+1,poll[3]+1,d});
 					}
 				} else {
@@ -77,9 +75,9 @@ public class Main {
 					dx += dirX[d];
 					dy += dirY[d];
 
-					if(0<=dx && dx<N && 0<=dy && dy<N && !vMap[dx][dy][d][poll[3]]) {
+					if(0<=dx && dx<N && 0<=dy && dy<N && !v[dx][dy][d][poll[3]]) {
 						if(map[dx][dy] <= poll[2]) continue;
-						vMap[dx][dy][d][poll[3]] = true;
+						v[dx][dy][d][poll[3]] = true;
 						q.offer(new int[] {dx,dy,poll[2]+1,1,d});
 					}
 				}
