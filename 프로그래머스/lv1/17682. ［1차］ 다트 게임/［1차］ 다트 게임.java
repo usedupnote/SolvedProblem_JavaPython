@@ -9,7 +9,7 @@ class Solution {
         int pos = 1;
         for(char c : ch){
             if(0<= c-'0' && c-'0'<10) {
-                score[pos] = (score[pos]*10) + (c-'0'); // 얻을 수 있는 점수는 0점에서 10점 (10점일 경우 2자리이므로 앞에 들어왔던 숫자를 *10 해줌으로써 표현
+                score[pos] = (score[pos]*10) + (c-'0');
                 continue;
             }
             else if(c == '*') {
@@ -24,7 +24,7 @@ class Solution {
                 continue;
             }
             for(int i = 0 ; i < 3 ; i++){
-                if(checker[i] == c){    //[Single(S) = 1제곱, Double(D) = 2제곱, Triple(T) = 3제곱]으로 계산
+                if(checker[i] == c){
                     score[pos] = (int)Math.pow(score[pos],i+1);
                     pos++;
                     break;
