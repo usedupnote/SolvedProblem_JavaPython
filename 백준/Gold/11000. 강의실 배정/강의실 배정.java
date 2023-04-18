@@ -11,6 +11,7 @@ public class Main {
 		int result = 0;
 		
 		PriorityQueue<long[]> q1 = new PriorityQueue<>(new Comparator<long[]>() {
+
 			@Override
 			public int compare(long[] o1, long[] o2) {
 				if(o1[0] == o2[0]) {
@@ -21,9 +22,9 @@ public class Main {
 		});
 		
 		PriorityQueue<long[]> q2 = new PriorityQueue<>(new Comparator<long[]>() {
+
 			@Override
 			public int compare(long[] o1, long[] o2) {
-				
 				return Long.compare(o1[1], o2[1]);
 			}
 		});
