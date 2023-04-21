@@ -7,12 +7,14 @@
 ### <a href = "https://www.acmicpc.net/user/leejm9704"> Java (Leejm9704) </a>
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=leejm9704)](https://solved.ac/leejm9704/)
+<img src="http://mazandi.herokuapp.com/api?handle=leejm9704&theme=warm"/>
 
 <br>
 
 ### <a href = "https://www.acmicpc.net/user/usedupnote"> Python (usedupnote) </a>
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=usedupnote)](https://solved.ac/usedupnote/)
+<img src="http://mazandi.herokuapp.com/api?handle=usedupnote&theme=warm"/>
 
 <br>
 
