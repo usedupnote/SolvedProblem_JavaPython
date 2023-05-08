@@ -1,12 +1,12 @@
-burger = []
-drink = []
-for i in range(3):
-    burger.append(int(input()))
+import sys
+input = sys.stdin.readline
 
-for i in range(2):
-    drink.append(int(input()))
+N = 2000
+M = 2000
 
-burger.sort()
-drink.sort()
+for i in range(3) :
+    N = min(N, int(input()))
+for i in range(2) :
+    M = min(M, int(input()))
 
-print(burger[0] + drink[0] - 50)
+print(N + M - 50)
