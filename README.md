@@ -1,6 +1,13 @@
 ##### Last Update (2023-04-25)
 
 # SolvedProblem_JavaPython
+매일매일 자바와 파이썬 코딩 문제를 푸는 Repository입니다. (Java / Python)
+> 문제 푸는 사이트 List
+> > [백준 (baekjoon)](https://www.acmicpc.net/) <br>
+> > [프로그래머스 (programmers)](https://programmers.co.kr/) <br>
+> > [SWEA (SW Expert Academy)](https://swexpertacademy.com/main/main.do) <br>
+> > [코드트리 (codeTree)](https://www.codetree.ai/missions) <br>
+> > [릿코드 (leetcode)](https://leetcode.com/)
 
 ## <a href = "https://www.acmicpc.net/"> BaekJoon </a>
 
@@ -36,3 +43,11 @@
 | **D1** | **D2** | **D3** | **D4** | **D5** | **D6** | **D7** | **D8** | **TOTAL** |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | 25 | 26 | 41 | 32 | 4 | 2 | 0 | 0 |**153**|
+
+
+## <a href = "https://www.codetree.ai/missions"> 코드트리 (codeTree) </a>
+### Solved Problem
+
+
+## <a href = "https://leetcode.com/"> 릿코드 (leetcode) </a>
+### Solved Problem
