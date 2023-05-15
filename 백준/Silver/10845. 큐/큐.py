@@ -1,35 +1,24 @@
 import sys
+input = sys.stdin.readline
 
-T = int(sys.stdin.readline())
+N = int(input())
+li = []
+fuc1 = lambda x:1 if x==0 else 0
+fuc2 = lambda x:-1 if x==0 else li.pop(0)
+fuc3 = lambda x:-1 if x==0 else li[0]
+fuc4 = lambda x:-1 if x==0 else li[len(li)-1]
 
-queue = []
-
-commandList = ["push", "pop", "size", "empty", "front", "back"]
-
-for i in range(T) :
-    command = list(sys.stdin.readline().split())
-
-    if command[0] == commandList[0] :
-        queue.append(command[1])
-    elif command[0] == commandList[1] :
-        if len(queue) != 0 :
-            print(queue.pop(0))
-        else :
-            print(-1)
-    elif command[0] == commandList[2] :
-        print(len(queue))
-    elif command[0] == commandList[3] :
-        if len(queue) != 0 :
-            print(0)
-        else :
-            print(1)
-    elif command[0] == commandList[4] :
-        if len(queue) != 0 :
-            print(queue[0])
-        else :
-            print(-1)
+for i in range(N) :
+    order = input()
+    if order[1] == 'u' :
+        li.append(order.split()[1])
+    elif order[1] == 'o' :
+        print(fuc2(len(li)))
+    elif order[1] == 'i' :
+        print(len(li))
+    elif order[1] == 'm' :
+        print(fuc1(len(li)))
+    elif order[1] == 'r' :
+        print(fuc3(len(li)))
     else :
-        if len(queue) != 0 :
-            print(queue[len(queue) - 1])
-        else :
-            print(-1)
+        print(fuc4(len(li)))
