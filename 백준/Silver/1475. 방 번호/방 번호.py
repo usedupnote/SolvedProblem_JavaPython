@@ -1,18 +1,15 @@
-a = list(input())
+import sys
+input = sys.stdin.readline
 
-num = []
-maximum = 0
+s = list(map(int, input().strip()))
 
-for i in range(10) :
-    num.append(0)
+num = [0 for _ in range(9)]
+num[6] += 1
+for i in s :
+    if i == 9 :
+        num[6] += 1
+    else :
+        num[i] += 1
+num[6] = num[6] // 2
 
-for i in a :
-    num[int(i)] += 1
-
-num[6] += num.pop()
-num[6] = (num[6]//2) + (0 if num[6] % 2 == 0 else 1)
-
-for i in range(9) :
-    maximum = max(maximum, num[i])
-
-print(maximum)
+print(max(num))
