@@ -7,17 +7,17 @@ public class Main {
         StringTokenizer st;
         
         int N = Integer.parseInt(br.readLine());
-        int result = Integer.MAX_VALUE;
-        
+        int result = 100001;
+        int A,B;
         for (int i = 0; i < N; i++) {
         	st = new StringTokenizer(br.readLine());
-            int A = Integer.parseInt(st.nextToken());
-            int B = Integer.parseInt(st.nextToken());
+            A = Integer.parseInt(st.nextToken());
+            B = Integer.parseInt(st.nextToken());
             
             if(A <= B) {
         		result = Math.min(result, B);
             }
 		}
-        System.out.println(result == Integer.MAX_VALUE ? -1:result);
+        System.out.print(result == Integer.MAX_VALUE ? -1:result);
     }
 }
