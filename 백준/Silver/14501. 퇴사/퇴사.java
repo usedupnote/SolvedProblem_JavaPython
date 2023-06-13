@@ -1,26 +1,35 @@
 import java.io.*;
 import java.util.*;
-
-public class Main {	
+ 
+public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		StringTokenizer st;			
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		int N = Integer.parseInt(br.readLine());
-				
-		int[] num = new int[N+6];
-		for (int i = 0; i < N; i++) {
+		int N = Integer.parseInt(st.nextToken());
+		
+		int[] day = new int[N + 1];
+		
+		st = new StringTokenizer(br.readLine());
+		int T = Integer.parseInt(st.nextToken());
+		int P = Integer.parseInt(st.nextToken());
+		
+		if (T <= N) day[T] = P;
+		
+		for (int i = 1; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
-			int d = Integer.parseInt(st.nextToken());
-			int s = Integer.parseInt(st.nextToken());
+			T = Integer.parseInt(st.nextToken());
+			P = Integer.parseInt(st.nextToken());
+
+			day[i] = Math.max(day[i-1], day[i]);
 			
-			num[i+d] = Math.max(num[i+d], num[i] + s);
-			for (int j = i+d; j <= N; j++) {
-				num[j] = Math.max(num[j-1], num[j]);
+			if (i + T <= N) {
+				day[i+T] = Math.max(day[i] + P, day[i+T]);
 			}
 		}
-		System.out.println(num[N]);
+		day[N] = Math.max(day[N-1], day[N]);
+		
+		System.out.println(day[N]);
 		br.close();
 	}
 }
