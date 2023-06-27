@@ -7,9 +7,12 @@ for test_case in range(T) :
     positon = list(map(int, input().split()))
 
     result = 0
-
-    if positon[0] == positon[3] and positon[1] == positon[4] and positon[2] != positon[5] :
+    if positon[2] == 0 : 
+        result = 1
+        
+    elif positon[0] == positon[3] and positon[1] == positon[4] and positon[2] != positon[5] :
         result = 0
+
     elif positon[0] == positon[3] and positon[1] == positon[4] and positon[2] == positon[5] :
         result = -1
     else :
