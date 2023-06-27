@@ -22,7 +22,8 @@ public class Main {
 			
 			dest = ((x1-x2) * (x1-x2)) + ((y1-y2)*(y1-y2));
 			pr = (r1 + r2) * (r1 + r2);
-			if		(x1==x2 && y1==y2 && r1==r2) sb.append(-1);
+            if	(r1==0) sb.append(1);
+			else if	(x1==x2 && y1==y2 && r1==r2) sb.append(-1);
 			else if (pr < dest || (r1 - r2) * (r1 - r2) > dest) sb.append(0);
 			else if (pr == dest || (r1 - r2) * (r1 - r2) == dest) sb.append(1);
 			else sb.append(2);
