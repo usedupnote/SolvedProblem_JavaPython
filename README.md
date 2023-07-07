@@ -6,6 +6,7 @@
 > > [백준 (baekjoon)](https://www.acmicpc.net/) <br>
 > > [프로그래머스 (programmers)](https://programmers.co.kr/) <br>
 > > [SWEA (SW Expert Academy)](https://swexpertacademy.com/main/main.do) <br>
+> > [softeer](https://softeer.ai/index.do) <br>
 > > [코드포스 (codeforces)](https://codeforces.com/) <br>
 > > [코드트리 (codeTree)](https://www.codetree.ai/missions) <br>
 > > [릿코드 (leetcode)](https://leetcode.com/)
