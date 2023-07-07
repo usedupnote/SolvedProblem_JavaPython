@@ -2,9 +2,13 @@
 
 [문제 링크](https://softeer.ai/practice/result.do?eventIdx=1&psProblemId=1309&submissionSn=SW_PRBL_SBMS_224330)
 
+### 풀이 시간
+
+시간: 1h
+
 ### 성능 요약
 
-메모리: 58,552 KB, 시간: 1,026 ms, 코드길이: 1,383 Bytes
+메모리: 58,552 KB, 시간: 1,026 ms
 
 ## 문제
 
