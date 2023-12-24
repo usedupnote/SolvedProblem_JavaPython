@@ -16,7 +16,7 @@ print(state)
 
 if state == "YES" :
     for i in range(T) :
-        print(num[i] * 2, end=" ")
+        print(num[i], end=" ")
     print()
     for i in range(T) :
-        print(num[i] * -1, end=" ")
+        print(0, end=" ")
