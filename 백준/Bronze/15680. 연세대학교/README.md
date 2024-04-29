@@ -1,18 +1,22 @@
-# [Bronze IV] 연세대학교 - 15680 
+# [Bronze V] 연세대학교 - 15680 
 
 [문제 링크](https://www.acmicpc.net/problem/15680) 
 
 ### 성능 요약
 
-메모리: 30616 KB, 시간: 36 ms
+메모리: 11348 KB, 시간: 72 ms
 
 ### 분류
 
-구현(implementation)
+구현
+
+### 제출 일자
+
+2024년 4월 29일 23:39:51
 
 ### 문제 설명
 
-<p style="text-align: center;"><img alt="" src="" style="width: 449px; height: 134px;"></p>
+<p style="text-align: center;"><img alt="" src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/problem/15680/1.png" style="width: 449px; height: 134px;"></p>
 
 <p>연세대학교의 영문명은 YONSEI, 슬로건은 Leading the Way to the Future이다.</p>
 
