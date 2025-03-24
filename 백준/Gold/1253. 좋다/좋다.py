@@ -4,7 +4,6 @@ input = sys.stdin.readline
 result = []
 N = int(input())
 num = list(map(int, input().split()))
-num.sort()
 
 dicNum = {}
 for n in num:
