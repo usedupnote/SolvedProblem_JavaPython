@@ -1,0 +1,32 @@
+# [Gold IV] 좋다 - 1253 
+
+[문제 링크](https://www.acmicpc.net/problem/1253) 
+
+### 성능 요약
+
+메모리: 32412 KB, 시간: 884 ms
+
+### 분류
+
+이분 탐색, 정렬, 두 포인터
+
+### 제출 일자
+
+2025년 3월 24일 13:54:59
+
+### 문제 설명
+
+<p style="user-select: auto !important;">N개의 수 중에서 어떤 수가 다른 수 두 개의 합으로 나타낼 수 있다면 그 수를 “좋다(GOOD)”고 한다.</p>
+
+<p style="user-select: auto !important;">N개의 수가 주어지면 그 중에서 좋은 수의 개수는 몇 개인지 출력하라.</p>
+
+<p style="user-select: auto !important;">수의 위치가 다르면 값이 같아도 다른 수이다.</p>
+
+### 입력 
+
+ <p style="user-select: auto !important;">첫째 줄에는 수의 개수 N(1 ≤ N ≤ 2,000), 두 번째 줄에는 i번째 수를 나타내는 A<sub style="user-select: auto !important;">i</sub>가 N개 주어진다. (|A<sub style="user-select: auto !important;">i</sub>| ≤ 1,000,000,000, A<sub style="user-select: auto !important;">i</sub>는 정수)</p>
+
+### 출력 
+
+ <p style="user-select: auto !important;">좋은 수의 개수를 첫 번째 줄에 출력한다.</p>
+
