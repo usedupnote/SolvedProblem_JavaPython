@@ -2,60 +2,74 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	static int N, M, result;
-	static StringBuilder sb = new StringBuilder();
-	static boolean[] v;
-	static ArrayList<Integer>[] al;
+	static class Friend{
+		int name;
+		ArrayList<Integer> relation;
+		
+		public Friend(int name) {
+			this.name = name;
+			relation = new ArrayList<>();
+		}
+		
+		public void setFriend(int friendName) {
+			relation.add(friendName);
+		}
+	}
 
+	static int N, M;
+	static Friend[] friends;
+	static boolean[] v;
+	
+	static int relationship() {
+		for (int i = 0; i < N; i++) {
+			v[i] = true;
+			if (checkRelationship(1, i)) return 1;
+			v[i] = false;
+		}
+		return 0;
+	}
+	
+	static boolean checkRelationship(int cnt, int pos) {
+		if (cnt == 5) {
+			return true;
+		}
+		
+		for (int i = 0; i < friends[pos].relation.size(); i++) {
+			int cur = friends[pos].relation.get(i);
+			if (v[cur]) continue;
+			v[cur] = true;
+			if (checkRelationship(cnt+1, cur)) return true;
+			v[cur] = false;
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
 		
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		al = new ArrayList[N];
+		friends = new Friend[N];
 		
 		for (int i = 0; i < N; i++) {
-			al[i] = new ArrayList<Integer>();
+			friends[i] = new Friend(i);
 		}
 		
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine());
+			int left = Integer.parseInt(st.nextToken());
+			int right = Integer.parseInt(st.nextToken());
 			
-			int from = Integer.parseInt(st.nextToken());
-			int to   = Integer.parseInt(st.nextToken());
-			
-			al[from].add(to);
-			al[to].add(from);
+			friends[left].setFriend(right);
+			friends[right].setFriend(left);			
 		}
 		
-		for (int i = 0; i < N; i++) {
-			if (al[i].size() < 1) continue;
-			v = new boolean[N];
-			// bfs(0);
-			dfs(i, 1);
-			if(result == 1) break;
-		}
+		v = new boolean[N];
 		
-		System.out.println(result);
-	}
-
-	static void dfs(int current, int count) {
-		v[current] = true;
-		
-		if (count == 5) {
-			result = 1;
-			return;
-		}
-		
-		for (int vertex : al[current]) {
-			if(!v[vertex]) {
-				v[vertex] = true;
-				dfs(vertex, count+1);
-				v[vertex] = false;
-			}
-			if(result == 1) return;
-		}
-	}
+		System.out.println(relationship());
+        br.close();
+    }
 }
