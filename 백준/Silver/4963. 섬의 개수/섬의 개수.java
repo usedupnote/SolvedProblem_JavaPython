@@ -6,11 +6,7 @@ public class Main {
 	static int[] dirY = {0, 1, 1, 1, 0, -1, -1, -1};
 	static int W, H, result;
 	static int[][] map;
-	/*
-	static void bfs() {
-		
-	}
-	*/
+	
 	static void dfs(int x, int y) {
 		map[x][y] = 0;
 		for (int d = 0; d < 8; d++) {
@@ -49,8 +45,8 @@ public class Main {
 				for (int j = 0; j < W; j++) {
 					if(map[i][j] == 1) {
 						result += 1;
-						// bfs(i, j);
 						dfs(i, j);
+						// dfs(i, j);
 					}
 				}
 			}
@@ -62,7 +58,6 @@ public class Main {
 	    	H = Integer.parseInt(st.nextToken());
 		}
     	System.out.println(sb);
-    	
     	br.close();
     }
 }
