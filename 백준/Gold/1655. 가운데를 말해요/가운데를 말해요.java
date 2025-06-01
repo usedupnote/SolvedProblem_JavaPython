@@ -6,6 +6,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
+        
         PriorityQueue<Integer> leftq = new PriorityQueue<>(new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {
@@ -18,28 +19,38 @@ public class Main {
         		return Integer.compare(o1, o2);
         	}
         });
-        
+
         st = new StringTokenizer(br.readLine());
-        int T = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
         
-        leftq.offer(Integer.parseInt(br.readLine()));
-        sb.append(leftq.peek()).append("\n");
-        
-        for (int i = 1; i < T; i++) {
-        	int num = Integer.parseInt(br.readLine());
-        	
-        	if(leftq.peek() < num) rightq.offer(num);
-        	else leftq.offer(num);
-        	
-        	if (leftq.size() == rightq.size() + 2) {
-				rightq.offer(leftq.poll());
+        for (int t = 0; t < N; t++) {
+            st = new StringTokenizer(br.readLine());
+
+            int n = Integer.parseInt(st.nextToken());
+            
+            if (leftq.isEmpty()) {
+            	leftq.add(n);
+				sb.append(n).append("\n");
+				
+				continue;
 			}
-        	if (leftq.size() + 1 == rightq.size()) {
-        		leftq.offer(rightq.poll());
+            
+            if (leftq.peek() >= n) {
+				leftq.add(n);
+				if (leftq.size() > rightq.size()+1) {
+					rightq.add(leftq.poll());
+				}
+			} else {
+				rightq.add(n);
+				if (leftq.size() < rightq.size()) {
+					leftq.add(rightq.poll());
+				}
 			}
-        	sb.append(leftq.peek()).append("\n");
+            
+            sb.append(leftq.peek()).append("\n");
 		}
-        
         System.out.println(sb);
+        
+        br.close();
     }
 }
